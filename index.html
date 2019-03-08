@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- JQuery Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="main-container" class="container">
+
+        <div class="jumbotron jumbotron-fluid text-center">
+            <div class="container">
+                <h1 id="title-message" class="display-4">*Insert Theme* Trivia game</h1>
+            </div>
+        </div>
+
+        <div id="start-button" class="text-center">
+            <button type="button" class="btn btn-primary btn-lg">Start Button</button>
+        </div>
+
+        <div>
+
+        </div>
+
+        <div id="question-container" class="row text-center hidden">
+            <div class="col-md-2"></div>
+            <div class="card col-md-8">
+                <div class="card-body">
+                    <h4 id="question-counter" class="card-title"></h4>
+                    <p id="question-text" class="card-text"></p>
+                    <!-- Buttons -->
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div id="answer-row-display"class="col-md-12 hidden">
+                                    <button id="answer-display" type="button" class="select-answer btn text-left w-100 mb-3"
+                                        value="1"></button>
+                                </div>
+                                <div class="col-md-12">
+                                    <button id="option1" type="button" class="select-answer btn text-left w-100 mb-3"
+                                        value="1"></button>
+                                </div>
+                                <div class="col-md-12">
+                                    <button id="option2" type="button" class="select-answer btn text-left w-100 mb-3"
+                                        value="2"></button>
+                                </div>
+                                <div class="col-md-12">
+                                    <button id="option3" type="button" class="select-answer btn text-left w-100 mb-3"
+                                        value="3"></button>
+                                </div>
+                                <div class="col-md-12">
+                                    <button id="option4" type="button" class="select-answer btn text-left w-100 mb-3"
+                                        value="4"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/javascript/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
