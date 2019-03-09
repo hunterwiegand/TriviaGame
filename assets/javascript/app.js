@@ -25,7 +25,7 @@ var game = {
     questionCounter: 9,
 
     intervalId: "",
-    gameTimer: 10,
+    gameTimer: 0,
 
     resultTimer: "",
 
