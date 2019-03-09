@@ -1,3 +1,14 @@
+
+
+//About ducks and geese
+//Sports
+//Movies
+//States and Contries and stuff
+//Geography! as you could say
+//Animals...obi
+//Lizards
+
+
 var game = {
 
     question: "",
@@ -11,11 +22,12 @@ var game = {
     correct: "0",
     incorrect: "0",
 
-    questionCounter: 0,
+    questionCounter: 9,
 
     intervalId: "",
-    gameTimer: 7,
-    resultTimer: 5,
+    gameTimer: 10,
+
+    resultTimer: "",
 
     //Function to start game off buton
     startGame: function () {
@@ -52,10 +64,11 @@ var game = {
     stopGameTimer: function () {
         clearInterval(game.intervalId);
         game.generateQuestion();
-        // game.updateDisplay();
-        setTimeout(game.updateDisplay, 3000);
-        if (game.questionCounter > 10) {
-            game.displayResults();
+
+        if (game.questionCounter < 10) {
+            setTimeout(game.updateDisplay, 5000);
+        } else {
+            game.resultTimer = setTimeout(game.displayResults, 5000); 
         }
     },
 
@@ -108,7 +121,43 @@ var game = {
                 game.answer = "3";
                 game.answerAsStr = "Hunter";
                 break;
+            case 5:
+                game.question = "What is my feend name";
+                game.option1 = "Tom";
+                game.option2 = "Tim";
+                game.option3 = "Hunter";
+                game.option4 = "Ty";
+                game.answer = "3";
+                game.answerAsStr = "Hunter";
+                break;
             case 6:
+                game.question = "What is my feend name";
+                game.option1 = "Tom";
+                game.option2 = "Tim";
+                game.option3 = "Hunter";
+                game.option4 = "Ty";
+                game.answer = "3";
+                game.answerAsStr = "Hunter";
+                break;
+            case 7:
+                game.question = "What is my feend name";
+                game.option1 = "Tom";
+                game.option2 = "Tim";
+                game.option3 = "Hunter";
+                game.option4 = "Ty";
+                game.answer = "3";
+                game.answerAsStr = "Hunter";
+                break;
+            case 8:
+                game.question = "What is my feend name";
+                game.option1 = "Tom";
+                game.option2 = "Tim";
+                game.option3 = "Hunter";
+                game.option4 = "Ty";
+                game.answer = "3";
+                game.answerAsStr = "Hunter";
+                break;
+            case 9:
                 game.question = "What is my silly name";
                 game.option1 = "Tom";
                 game.option2 = "Tim";
@@ -124,7 +173,7 @@ var game = {
                 game.option3 = "";
                 game.option4 = "";
                 game.answer = "";
-                game.answerAsStr= "";
+                game.answerAsStr = "";
                 break;
         }
     },
@@ -146,22 +195,21 @@ var game = {
     //function to evaluate player input
     applyGuess: function (guess) {
 
-        console.log("Guess ", guess);
-        console.log("Answer ", game.answer);
-
         if (guess === game.answer) {
             game.stopGameTimer();
-
-            console.log("You guessed right");
             game.displayCorrectGuess();
             game.correct++;
         } else {
             game.stopGameTimer();
-            console.log("Wrong!!!!!!!");
             game.displayIncorrectGuess();
             game.incorrect++;
         }
 
+        if (game.questionCounter > 10) {
+            game.displayResults();
+
+            game.stopGameTimer();
+        }
         // game.updateDisplay();
     },
 
@@ -172,6 +220,12 @@ var game = {
         game.runGameTimer();
 
         game.questionCounter++;
+
+        // if (game.questionCounter > 10) {
+        //     game.displayResults();
+
+        //     game.stopGameTimer();
+        // }
 
         $("#timer-card").removeClass("hidden");
 
@@ -212,7 +266,7 @@ var game = {
         $("#option3").addClass("hidden");
         $("#option4").addClass("hidden");
 
-        game.gameTimer = 7;
+        game.gameTimer = 10;
     },
 
     //Display Incorrect Result Screen
@@ -221,7 +275,7 @@ var game = {
         $("#question-text").html("Incorrect, the answer was");
 
         //set timeout for 5 seconds to change displayCorrect guess to display
-        
+
         // game.runResultTimer();
         //Hide timer card
         $("#timer-card").addClass("hidden");
@@ -234,7 +288,7 @@ var game = {
         $("#option3").addClass("hidden");
         $("#option4").addClass("hidden");
 
-        game.gameTimer = 7;
+        game.gameTimer = 10;
     },
 
     //Display Out of time Sceen
@@ -246,7 +300,7 @@ var game = {
 
         //Hide timer card
         $("#timer-card").addClass("hidden");
-        
+
         // game.runResultTimer();
 
         // $("#question-counter").html("Question " + game.questionCounter - 1);
@@ -257,11 +311,15 @@ var game = {
         $("#option3").addClass("hidden");
         $("#option4").addClass("hidden");
 
-        game.gameTimer = 7;
+        game.gameTimer = 10;
     },
 
     displayResults: function () {
-        
+        console.log("We are in the display results function");
+        $("#title-message").html("Results");
+        game.stopGameTimer();
+
+        clearTimeout(game.resultTimer);
     }
 };
 
