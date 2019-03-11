@@ -19,10 +19,10 @@ var game = {
     answer: "",
     answerAsStr: "",
 
-    correct: "0",
+    correct: 0,
     incorrect: "0",
 
-    questionCounter: 0,
+    questionCounter: 9,
 
     intervalId: "",
     gameTimer: 10,
@@ -265,10 +265,6 @@ var game = {
 
         $("#question-text").html("Incorrect, the answer was");
 
-        //set timeout for 5 seconds to change displayCorrect guess to display
-
-        // game.runResultTimer();
-        //Hide timer card
         $("#timer-card").addClass("hidden");
 
         // $("#question-counter").html("Question " + game.questionCounter - 1);
@@ -310,7 +306,6 @@ var game = {
         var grade = game.getLetterGrade(game.correct);
         console.log("We are in the display results function");
         $("#title-message").html("Results");
-        game.stopGameTimer();
 
         $("#answer-display").addClass("hidden");
 
@@ -319,16 +314,21 @@ var game = {
         $("#question-counter").html("Here's the results");
         $("#option1").html("Questions answered correctly: " + game.correct);
         $("#option1").removeClass("hidden");
+        $("#option1").prop("disabled", true);
         $("#option2").html("Questions answered incorrectly: " + game.incorrect);
         $("#option2").removeClass("hidden");
+        $("#option2").prop("disabled", true);
 
         $("#option4").html("Grade: " + grade[0] + " ( " + grade[1] + ")");
         $("#option4").removeClass("hidden");
 
-
+        
+        game.stopGameTimer();
 
 
         clearTimeout(game.resultTimer);
+
+        game.resetGame();
     },
 
     getLetterGrade: function (correct) {
@@ -368,6 +368,18 @@ var game = {
                 var letterGrade = ["A+", "100%"];
                 return letterGrade;
         }
+    },
+
+    resetGame: function () {
+        // Add a button to reset the game, aka 
+
+        $("#play-again").html("Click to try again");
+        $("#play-again").removeClass("hidden");
+        //reset stats
+
+        game.generateQuestion();
+        game.startGame();
+        game.getPlayerGuess();
     }
 };
 
