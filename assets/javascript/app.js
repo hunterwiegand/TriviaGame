@@ -22,7 +22,7 @@ var game = {
     correct: 0,
     incorrect: "0",
 
-    questionCounter: 9,
+    questionCounter: 0,
 
     intervalId: "",
     gameTimer: 10,
@@ -322,7 +322,7 @@ var game = {
         $("#option4").html("Grade: " + grade[0] + " ( " + grade[1] + ")");
         $("#option4").removeClass("hidden");
 
-        
+
         game.stopGameTimer();
 
 
@@ -371,15 +371,36 @@ var game = {
     },
 
     resetGame: function () {
-        // Add a button to reset the game, aka 
 
         $("#play-again").html("Click to try again");
+
         $("#play-again").removeClass("hidden");
+        $("#play-again").on("click", function () {
+
+            $("#option1").prop("disabled", false);
+            $("#option2").prop("disabled", false);
+            $("#play-again").addClass("hidden");
+            game.questionCounter = "0";
+
+
+            game.generateQuestion();
+
+
+            game.runGameTimer();
+            $("#title-message").html("TRIVIA TIME");
+            $("#start-button").html("<div id='timer-card'><span></span></div>");
+            $("#question-container").removeClass("hidden");
+
+            game.updateDisplay();
+            game.getPlayerGuess();
+            console.log("Ran out of time to fix reset Function :(")
+        });
+        // Add a button to reset the game, aka 
+
+
         //reset stats
 
-        game.generateQuestion();
-        game.startGame();
-        game.getPlayerGuess();
+
     }
 };
 
