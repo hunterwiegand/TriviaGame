@@ -87,7 +87,7 @@ var game = {
                 game.answerAsStr = "C D E F G A B C";
                 break;
             case 1:
-                game.question = "Following the circle 5th, what comes after D major scale";
+                game.question = "Following the circle of 5ths, what comes after D major scale";
                 game.option1 = "E Major";
                 game.option2 = "E Minor";
                 game.option3 = "A major";
@@ -138,7 +138,7 @@ var game = {
                 game.option3 = "2";
                 game.option4 = "1";
                 game.answer = "1";
-                game.answerAsStr = "1";
+                game.answerAsStr = "4";
                 break;
             case 7:
                 game.question = "A Saxophone is a ...";
@@ -164,7 +164,7 @@ var game = {
                 game.option2 = "Absolutely";
                 game.option3 = "300%";
                 game.option4 = "No";
-                game.answer = "3";
+                game.answer = "2";
                 game.answerAsStr = "Absolutely";
                 break;
             default:
